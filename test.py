@@ -21,7 +21,7 @@ def on_press(key):
 
 
 
-DELAY = 50
+DELAY = 500
 PIECE = 10 #How many pieces a video will be divided
 
 class video:
@@ -117,7 +117,6 @@ with keyboard.Listener(on_press=on_press) as listener:
         while break_video == False:
             video_data = video(id)
             data_str = str(ser.readline())
-            print(data_str)
             data_str = data_str.replace("b'", '')
             data_str = data_str.replace("\\r\\n'", '')
             data_str = data_str.split('\\')[0]
@@ -166,6 +165,11 @@ with keyboard.Listener(on_press=on_press) as listener:
         video.to_file(user_data.video_data)
 
     user_data.to_file('data/users.csv')
+    fd2 = open('data/users.csv', 'w+')
+    fd2.write('\n')
+    fd2.close()
+    
     fd = open('data/user_count', 'w')
     id = int(fd.write(str(id+1)))
     fd.close()
+  
