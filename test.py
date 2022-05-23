@@ -38,10 +38,13 @@ class video:
 
 
 class user:
-    def __init__(self, id, sex=None, age=None, emotional=None, frequency=None, video_data=None):
+    def __init__(self, id, sex=None, age=None, height=None, weight=None, location=None, emotional=None, frequency=None, video_data=None):
         self.id = id
         self.sex = sex #M:male F:female
         self.age = age
+        self.location = location
+        self.height = height
+        self.weight = weight
         self.emotional = emotional #Y: emotional N: not emotional
         self.frequency = frequency #0: never 1: every year 2: every 6 months 3: every month 4: every week 5: every 1-3 days
         self.video_data = video_data
@@ -73,6 +76,23 @@ while True:
     user_data.age = inp
     break
 
+while True:
+    print('Height:')
+    inp=input()
+    user_data.height = inp
+    break
+
+while True:
+    print('Weight:')
+    inp=input()
+    user_data.weight = inp
+    break
+
+while True:
+    print('Location:')
+    inp=input()
+    user_data.location = inp
+    break
 
 while True:
     print('Are you emotional? Yes(Y) No(N)')
