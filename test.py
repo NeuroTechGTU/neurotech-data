@@ -52,7 +52,7 @@ class user:
 
     def to_file(self, filepath):
         with open(filepath, 'a') as f:
-            f.write(str(self.id) + ',' + str(self.sex) + ',' + str(self.age) + ',' + str(self.emotional) + ',' + str(self.frequency) + ',' + str(self.video_data) +'\n')
+            f.write(str(self.id) + ',' + str(self.sex) + ',' + str(self.age) + ',' + str(self.height) + ',' + str(self.weight) + ',' + str(self.location) + ',' + str(self.emotional) + ',' + str(self.frequency) + ',' + str(self.video_data) + '\n')
             f.close()
 
 fd = open('data/user_count', 'r')
@@ -165,7 +165,7 @@ with keyboard.Listener(on_press=on_press) as listener:
                 data_str = data_str.split('\\')[0]
                 data_list = data_str.split(' ')
                 sensor_val = float(data_list[1])
-            device_fd.write(str(sensor_val) + ', ' + str(time) + '\n')
+            device_fd.write(str(sensor_val) + ',' + str(time) + '\n')
             time += 1
         device_fd.close()
         print('S: Sadness D: Disgust A: Anger AN: Anticipation J: Joy/Comedy T: Trust F: Fear SU: Surprise NR: Not Relevant')
