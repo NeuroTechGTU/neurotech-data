@@ -38,10 +38,13 @@ class video:
 
 
 class user:
-    def __init__(self, id, sex=None, age=None, emotional=None, frequency=None, video_data=None):
+    def __init__(self, id, sex=None, age=None, height=None, weight=None, location=None, emotional=None, frequency=None, video_data=None):
         self.id = id
         self.sex = sex #M:male F:female
         self.age = age
+        self.location = location
+        self.height = height
+        self.weight = weight
         self.emotional = emotional #Y: emotional N: not emotional
         self.frequency = frequency #0: never 1: every year 2: every 6 months 3: every month 4: every week 5: every 1-3 days
         self.video_data = video_data
@@ -49,8 +52,9 @@ class user:
 
     def to_file(self, filepath):
         with open(filepath, 'a') as f:
-            f.write(str(self.id) + ',' + str(self.sex) + ',' + str(self.age) + ',' + str(self.emotional) + ',' + str(self.frequency) + ',' + str(self.video_data) +'\n')
+            f.write(str(self.id) + ',' + str(self.sex) + ',' + str(self.age) + ',' + str(self.height) + ',' + str(self.weight) + ',' + str(self.location) + ',' + str(self.emotional) + ',' + str(self.frequency) + ',' + str(self.video_data) + '\n')
             f.close()
+
 
 fd = open('data/user_count', 'r')
 id = int(fd.readline())
@@ -117,6 +121,7 @@ with keyboard.Listener(on_press=on_press) as listener:
         ser.flushInput()
         sleep(1)
 
+        time = 0
         print('Press shift to pause when a video is watched.\n')
         while break_video == False:
             video_data = video(id)
@@ -148,7 +153,8 @@ with keyboard.Listener(on_press=on_press) as listener:
                 data_str = data_str.split('\\')[0]
                 data_list = data_str.split(' ')
                 sensor_val = float(data_list[1])
-            device_fd.write(str(sensor_val) + '\n')
+            device_fd.write(str(sensor_val) + ',' + str(time) + '\n')
+            time += 1
         device_fd.close()
         print('S: Sadness D: Disgust A: Anger AN: Anticipation J: Joy/Comedy T: Trust F: Fear SU: Surprise NR: Not Relevant')
         
