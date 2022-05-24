@@ -133,6 +133,7 @@ with keyboard.Listener(on_press=on_press) as listener:
         ser.flushInput()
         sleep(1)
 
+        time = 0
         print('Press shift to pause when a video is watched.\n')
         while break_video == False:
             video_data = video(id)
@@ -164,7 +165,8 @@ with keyboard.Listener(on_press=on_press) as listener:
                 data_str = data_str.split('\\')[0]
                 data_list = data_str.split(' ')
                 sensor_val = float(data_list[1])
-            device_fd.write(str(sensor_val) + '\n')
+            device_fd.write(str(sensor_val) + ', ' + str(time) + '\n')
+            time += 1
         device_fd.close()
         print('S: Sadness D: Disgust A: Anger AN: Anticipation J: Joy/Comedy T: Trust F: Fear SU: Surprise NR: Not Relevant')
         
