@@ -50,25 +50,25 @@ void loop() {
   //----------------------------------------------------
   light36 = 0.0;
   light36 += analogRead(potPin36);
-  Serial.print("ligth36 : ");
+  Serial.print("0 ");
   Serial.println(light36);
   SerialBT.println(light36);
   //--------------------------------------------------
   light35 = 0.0;
   light35 += analogRead(potPin35);
-  Serial.print("ligth35 : ");
+  Serial.print("1 ");
   Serial.println(light35);
   SerialBT.println(light35);
 //  -------------------------------------------------
   light34 = 0.0;
   light34 += analogRead(potPin34);
-  Serial.print("ligth34 : ");
+  Serial.print("2 ");
   Serial.println(light34);
   SerialBT.println(light34);
 //  ------------------------------------------
   light33 = 0.0;
   light33 += analogRead(potPin33);
-  Serial.print("ligth33 : ");
+  Serial.print("3 ");
   Serial.println(light33);
   SerialBT.println(light33);
 //  -------------------------------------
