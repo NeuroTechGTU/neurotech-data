@@ -45,6 +45,7 @@ def extractdata(folder_name, csv_name):
     
     while counter < 4: 
         x = []
+        temp = []
         if(counter == 0):
              standart_x = np.array_split(file.Sensor4,10)
         elif(counter == 1):
@@ -77,13 +78,16 @@ def extractdata(folder_name, csv_name):
                     os.mkdir(folder_name+std_dev+"/low") 
                 with open(path+final+csv_name, "a",newline='') as f_low:
                     writer = csv.writer(f_low)
-                    writer.writerow(arr)
+                    temp.append(statistics.fmean(arr))
+                    temp.append(min(arr))
+                    temp.append(max(arr))
+                    writer.writerow(temp)
                     f_low.close()
                 flag = 1
             if(flag == 1):
                 flag = 0
                 break
-                
+        temp = []
         flag = 0
         for arr in standart_x:    
             final = "High_"
@@ -93,7 +97,11 @@ def extractdata(folder_name, csv_name):
             if(x[len(x) - 1] == statistics.stdev(arr) and num_lines <= 2):
                 with open(path+ final+csv_name, "a",newline='') as f_high:
                     writer = csv.writer(f_high)
-                    writer.writerow(arr)
+                    temp.append(statistics.fmean(arr))
+                    temp.append(min(arr))
+                    temp.append(max(arr))
+                    print(temp)
+                    writer.writerow(temp)
                     f_high.close()
                 flag = 1
             if(flag == 1):
