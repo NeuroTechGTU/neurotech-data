@@ -26,9 +26,9 @@
 26,M,21,0,0,data/user_tests/u_26
 27,M,21,0,0,data/user_tests/u_27
 28,M,21,0,0,data/user_tests/u_28
-29,M,24,179,89,ANKARA,Y,4,data/user_tests/u_29
-30,M,23,181,84,ISTANBUL,Y,4,data/user_tests/u_30
-31,F,23,163,76,KOCAELI,Y,5,data/user_tests/u_31
-32,F,24,173,60,ISTANBUL,Y,3,data/user_tests/u_32
-33,F,24,158,45,KOCAELI,Y,3,data/user_tests/u_33
-34,M,23,163,75,RIZE,Y,3,data/user_tests/u_34
+29,M,24,179,89,Y,4,data/user_tests/u_29
+30,M,23,181,84,Y,4,data/user_tests/u_30
+31,F,23,163,76,Y,5,data/user_tests/u_31
+32,F,24,173,60,Y,3,data/user_tests/u_32
+33,F,24,158,45,Y,3,data/user_tests/u_33
+34,M,23,163,75,Y,3,data/user_tests/u_34
