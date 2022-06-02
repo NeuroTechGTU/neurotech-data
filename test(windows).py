@@ -77,6 +77,23 @@ while True:
     user_data.age = inp
     break
 
+while True:
+    print('Height:')
+    inp=input()
+    user_data.height = inp
+    break
+
+while True:
+    print('Weight:')
+    inp=input()
+    user_data.weight = inp
+    break
+
+while True:
+    print('Location:')
+    inp=input()
+    user_data.location = inp
+    break
 
 while True:
     print('Are you emotional? Yes(Y) No(N)')
