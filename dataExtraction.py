@@ -11,6 +11,30 @@ import numpy as np
 from pathlib import Path
 from re import search
 
+
+########################################
+
+# bu kod user testlerinin sensor verilerindeki en yuksek ve en dusuk 
+# standart sapma verilerini bulur takip ettigi dosya yolu = data/device_data/USER_NUMBER/.CSV
+# butun dosyalari tarayip en yuksek standart sapma degerini data/device_data/USER_NUMBER/std_dev/high
+# en dusuk standart sapma degerini ise data/device_data/USER_NUMBER/std_dev/low pathine kaydeder.
+# bu degerler her sensor icin bir tane olarak csv olarak kaydedilir. Ornek olarak 
+# "data/device_data/u_1/std_dev/high/High_v_0.csv" pathi icin csv dosyasindaki satirlarin
+#  okunmasi su sekildedir
+
+    # 1.satir  = 4.sensor verilerini (28mm)
+    # 2.satir  = 3.sensor verilerini (23mm)     -------- mm cinsinden verilmis uzakliklar -----
+    # 3.satir  = 2.sensor verilerini (10mm)     ---------- ledlere olan uzakliklardir ---------
+    # 4.satir  = 1.sensor verilerini (5mm)
+
+# verilen ornek dosya uzantisinda ("data/device_data/u_1/std_dev/high/High_v_0.csv")
+# csv dosyasi high klasoru icinde oldugu icin bu csv dosyasindaki sensor verileri 
+# kisiye ozel olarak ayni isimle yapilmis test icin (ornege gore v_0.csv test datasi) 
+# en yuksek standart sapma degerini tutar
+
+
+#########################################
+
 def extractdata(folder_name, csv_name):
     columns = ["Sensor4","Sensor3","Sensor2","Sensor1","Size"]
     exact_folder_path = folder_name+csv_name
