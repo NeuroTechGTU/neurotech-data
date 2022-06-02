@@ -1,3 +1,7 @@
 
 data/device_data/.DS_Store
 .DS_Store
+.idea
+.idea/.name
+.idea/vcs.xml
+.idea/workspace.xml
