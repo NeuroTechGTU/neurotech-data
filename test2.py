@@ -121,7 +121,7 @@ count = 0
 with keyboard.Listener(on_press=on_press) as listener:
     while True:
         try:
-            ser = serial.Serial('COM5', 115200)
+            ser = serial.Serial('COM7', 115200)
             print(ser.readline())
         except:
            pass
