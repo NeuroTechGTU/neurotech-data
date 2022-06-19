@@ -4,7 +4,6 @@
     <list default="true" id="f5741bbf-8247-485b-a7e2-1cd6731b19be" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/user_count" beforeDir="false" afterPath="$PROJECT_DIR$/data/user_count" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/users_edited.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/users_edited.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
