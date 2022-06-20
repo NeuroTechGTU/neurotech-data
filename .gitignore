@@ -1,7 +1,11 @@
 
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/settings.json
+.vscode/tasks.json
+data/.DS_Store
 data/device_data/.DS_Store
-.DS_Store
-.idea
-.idea/.name
-.idea/vcs.xml
-.idea/workspace.xml
+data/figures/.DS_Store
+data/figures/u_15/.DS_Store
+data/figures/u_25/.DS_Store
+data/model_data/.DS_Store

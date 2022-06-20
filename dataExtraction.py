@@ -3,8 +3,6 @@ import csv
 from fileinput import filename
 import statistics
 import string
-from matplotlib.cbook import ls_mapper
-import statistic
 import pandas as pd
 import os
 import numpy as np

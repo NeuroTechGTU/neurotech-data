@@ -56,63 +56,64 @@ for i in df.index:
     for j in df_u.index:
         if df_u['user_emotion'][j] != 'NR':
             path = df_u['path'][j].split('/')
-            if high == 1:
-                filepath = 'data/device_data/' + path[2] + '/std_dev/high/High_' + path[3]
-            else:
-                filepath = 'data/device_data/' + path[2] + '/std_dev/low/Low_' + path[3]
-            
-            if os.path.isfile(filepath):
-                testFile = csvFile()
-                df_test = pd.read_csv(filepath, header=None)
-                df_test.columns = ['mean','min','max']
-                testFile.avg = df_test['mean'].to_list()
-                testFile.min = df_test['min'].to_list()
-                testFile.max = df_test['max'].to_list()
-                if df['sex'][i] == 'M':
-                    testFile.sex = 0
+            if path[2] != '.DS_Store':
+                if high == 1:
+                    filepath = 'data/device_data/' + path[2] + '/std_dev/high/High_' + path[3]
                 else:
-                    testFile.sex = 1
-                testFile.age = df['age'][i]
+                    filepath = 'data/device_data/' + path[2] + '/std_dev/low/Low_' + path[3]
+                
+                if os.path.isfile(filepath):
+                    testFile = csvFile()
+                    df_test = pd.read_csv(filepath, header=None)
+                    df_test.columns = ['mean','min','max']
+                    testFile.avg = df_test['mean'].to_list()
+                    testFile.min = df_test['min'].to_list()
+                    testFile.max = df_test['max'].to_list()
+                    if df['sex'][i] == 'M':
+                        testFile.sex = 0
+                    else:
+                        testFile.sex = 1
+                    testFile.age = df['age'][i]
 
-                height = df['height'][i]
-                weight = df['weight'][i]
-                
-                if height == 0 or weight == 0:
-                    bmi = 20
-                else:
-                    bmi = weight / (height/100)**2
-                
-                if bmi < 18.5:
-                    testFile.bmi = 0
-                elif bmi > 18.5 and bmi < 25:
-                    testFile.bmi = 1
-                elif bmi > 25:
-                    testFile.bmi = 2
-                
-                if df_u['user_emotion'][j] == 'S':
-                    testFile.append_to_file(f_sad)
-                    print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/sadness_' + file_format + '.csv')
-                elif df_u['user_emotion'][j] == 'D':
-                    testFile.append_to_file(f_disgust)
-                    print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/disgust_' + file_format + '.csv')
-                elif df_u['user_emotion'][j] == 'A':
-                    testFile.append_to_file(f_anger)
-                    print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/anger_' + file_format + '.csv')
-                elif df_u['user_emotion'][j] == 'AN':
-                    testFile.append_to_file(f_anti)
-                    print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/anticipation_' + file_format + '.csv')
-                elif df_u['user_emotion'][j] == 'J':
-                    testFile.append_to_file(f_joy)
-                    print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/joy_' + file_format + '.csv')
-                elif df_u['user_emotion'][j] == 'T':
-                    testFile.append_to_file(f_trust)
-                    print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/trust_' + file_format + '.csv')
-                elif df_u['user_emotion'][j] == 'F':
-                    testFile.append_to_file(f_fear)
-                    print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/fear_' + file_format + '.csv')
-                elif df_u['user_emotion'][j] == 'SU':
-                    testFile.append_to_file(f_surprise)
-                    print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/surprise_' + file_format + '.csv')
+                    height = df['height'][i]
+                    weight = df['weight'][i]
+                    
+                    if height == 0 or weight == 0:
+                        bmi = 20
+                    else:
+                        bmi = weight / (height/100)**2
+                    
+                    if bmi < 18.5:
+                        testFile.bmi = 0
+                    elif bmi > 18.5 and bmi < 25:
+                        testFile.bmi = 1
+                    elif bmi > 25:
+                        testFile.bmi = 2
+                    
+                    if df_u['user_emotion'][j] == 'S':
+                        testFile.append_to_file(f_sad)
+                        print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/sadness_' + file_format + '.csv')
+                    elif df_u['user_emotion'][j] == 'D':
+                        testFile.append_to_file(f_disgust)
+                        print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/disgust_' + file_format + '.csv')
+                    elif df_u['user_emotion'][j] == 'A':
+                        testFile.append_to_file(f_anger)
+                        print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/anger_' + file_format + '.csv')
+                    elif df_u['user_emotion'][j] == 'AN':
+                        testFile.append_to_file(f_anti)
+                        print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/anticipation_' + file_format + '.csv')
+                    elif df_u['user_emotion'][j] == 'J':
+                        testFile.append_to_file(f_joy)
+                        print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/joy_' + file_format + '.csv')
+                    elif df_u['user_emotion'][j] == 'T':
+                        testFile.append_to_file(f_trust)
+                        print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/trust_' + file_format + '.csv')
+                    elif df_u['user_emotion'][j] == 'F':
+                        testFile.append_to_file(f_fear)
+                        print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/fear_' + file_format + '.csv')
+                    elif df_u['user_emotion'][j] == 'SU':
+                        testFile.append_to_file(f_surprise)
+                        print("Data successfully written from the file: " + filepath + " to the file: " + 'data/model_data/surprise_' + file_format + '.csv')
 
 f_sad.close()
 f_disgust.close()
