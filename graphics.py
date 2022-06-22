@@ -12,9 +12,9 @@ fig.set_size_inches(13, 8, forward=True)
 x = np.arange(0, file.Sensor4.size, 1)
 y = []
 
-y = file.Sensor1
+y = file.Sensor1;
 
-ax.plot(x,y, label='29mm')
+ax.plot(x,y, label='29mm');
 ax.plot(x,file.Sensor3,label='24mm')
 ax.plot(x, file.Sensor2,label='10mm')
 ax.plot(x, file.Sensor4,label='5mm')
