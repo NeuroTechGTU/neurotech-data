@@ -29,14 +29,14 @@ if high == 1:
 else:
     file_format = 'low'
 ##create file if it exist clear it
-f_sad = open('data/model_data/sadness_' + file_format + '.csv', 'w')
-f_disgust = open('data/model_data/disgust_' + file_format + '.csv', 'w')
-f_anger = open('data/model_data/anger_' + file_format + '.csv', 'w')
-f_anti = open('data/model_data/anticipation_' + file_format + '.csv', 'w')
-f_joy = open('data/model_data/joy_' + file_format + '.csv', 'w')
-f_trust = open('data/model_data/trust_' + file_format + '.csv', 'w')
-f_fear = open('data/model_data/fear_' + file_format + '.csv', 'w')
-f_surprise = open('data/model_data/surprise_' + file_format + '.csv', 'w')
+f_sad = open('data/model_data/sadness_f_' + file_format + '.csv', 'w')
+f_disgust = open('data/model_data/disgust_f_' + file_format + '.csv', 'w')
+f_anger = open('data/model_data/anger_f_' + file_format + '.csv', 'w')
+f_anti = open('data/model_data/anticipation_f_' + file_format + '.csv', 'w')
+f_joy = open('data/model_data/joy_f_' + file_format + '.csv', 'w')
+f_trust = open('data/model_data/trust_f_' + file_format + '.csv', 'w')
+f_fear = open('data/model_data/fear_f_' + file_format + '.csv', 'w')
+f_surprise = open('data/model_data/surprise_f_' + file_format + '.csv', 'w')
 
 write_header(f_sad)
 write_header(f_disgust)
@@ -57,10 +57,10 @@ for i in df.index:
         if df_u['user_emotion'][j] != 'NR':
             path = df_u['path'][j].split('/')
             if path[2] != '.DS_Store':
-                if high == 1:
-                    filepath = 'data/device_data/' + path[2] + '/std_dev/high/High_' + path[3]
-                else:
-                    filepath = 'data/device_data/' + path[2] + '/std_dev/low/Low_' + path[3]
+                #if high == 1:
+                filepath = 'data/device_data/' + path[2] + '/f_dev/' + path[3]
+                #else:
+                    #filepath = 'data/device_data/' + path[2] + '/std_dev/low/Low_' + path[3]
                 
                 if os.path.isfile(filepath):
                     testFile = csvFile()
